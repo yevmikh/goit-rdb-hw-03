@@ -1,0 +1,38 @@
+p1_1
+
+SELECT * FROM csv.products;
+
+p1_2
+
+SELECT name, phone FROM csv.shippers;
+
+p2 
+
+SELECT 
+TRUNCATE(AVG(price), 3) AS average_price, 
+MAX(price) AS maximum_price, 
+MIN(price) AS minimum_price 
+FROM csv.products;
+
+p3
+
+SELECT DISTINCT category_id, price 
+FROM csv.products
+ORDER BY price DESC
+LIMIT 10
+
+p4 
+
+SELECT COUNT(id) AS total_unique_products 
+FROM csv.products
+WHERE price >= 20 AND price <= 100
+
+p5 
+
+SELECT supplier_id , 
+COUNT(id) AS amount_products, TRUNCATE(AVG(price), 3) AS supplyer_average_price 
+FROM csv.products
+GROUP BY supplier_id
+
+
+
